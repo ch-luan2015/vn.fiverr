@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fiverr-Freelance</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="./css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css" />
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <!-- ////// END ////// -->
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <!-- OWL CAROUSEL JS -->
+    <script src="./js/owl.carousel.min.js"></script>
+    <script>
+      $(".recently__slider").owlCarousel({
+        loop: false,
+        margin: 36,
+        nav: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        dots: false,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          800: {
+            items: 3,
+          },
+          1050: {
+            items: 4,
+          },
+          1200: {
+            items: 5,
+          },
+        },
+      });
+      $(".services__slider").owlCarousel({
+        loop: true,
+        margin: 36,
+        nav: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        dots: false,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          800: {
+            items: 3,
+          },
+          1050: {
+            items: 4,
+          },
+          1250: {
+            items: 5,
+          },
+        },
+      });
+
+      $(".project__slider").owlCarousel({
+        loop: true,
+        margin: 36,
+        nav: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        dots: false,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          800: {
+            items: 3,
+          },
+          1100: {
+            items: 4,
+          },
+        },
+      });
+      $(".feedback__slider").owlCarousel({
+        loop: false,
+        margin: 36,
+        nav: true,
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+        dots: false,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 1,
+          },
+          1000: {
+            items: 1,
+          },
+        },
+      });
+    </script>
+    <!-- MAIN JS -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
