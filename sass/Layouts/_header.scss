@@ -1,0 +1,68 @@
+.header {
+  .header__content {
+    position: fixed;
+    display: block;
+
+    width: 100%;
+    z-index: 5;
+    .header__top {
+      height: 80px;
+      padding: 0 $pd-4;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid transparent;
+      transition: all 0.6s;
+
+      .my-nav {
+        padding: 0;
+        width: 100%;
+        background-color: transparent;
+        .join-responsive {
+          text-decoration: none;
+          color: $color-gray-2;
+          display: none;
+        }
+        .login-responsive {
+          text-decoration: none;
+          color: $color-gray-2;
+          display: none;
+        }
+        .my-nav__brand {
+          min-width: 110px;
+          margin: 0;
+          padding: $pd-1 $pd-1 $pd-1 0;
+          vertical-align: middle;
+          line-height: $line-height-1;
+        }
+
+        .my-nav__search {
+          width: 28%;
+          @include styleForm(34px, $color-gray-9, $fs-1, $fw-2, $pd-10 + 2, $pd-10 + 3, $pd-10 + 2, $pd-4 - 2, $color-gray-10, 8px, 1.15rem);
+          opacity: 0;
+        }
+
+        .my-nav__pages {
+          vertical-align: middle;
+          .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0 $pd-2;
+          }
+          .nav-link {
+            padding: 0;
+            @include styleText($color-gray-1, $fs-1, $fw-3);
+            &:not(.nav-link--green):hover {
+              color: $color-green-1;
+            }
+          }
+          .nav-link--green {
+            color: $color-green-4;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
