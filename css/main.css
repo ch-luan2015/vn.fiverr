@@ -118,5 +118,46 @@ body {
       .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content {
         width: 100%;
         justify-content: space-between; }
+        .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item {
+          padding: 0 10px;
+          position: relative; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item:first-child {
+            padding-left: 0; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item:last-child {
+            padding-right: 0; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item:hover .nav-link {
+            background-color: #1dbf73; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item:hover .dropdown-menu__4 {
+            display: block; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item:hover .dropdown-menu__2--left {
+            display: block; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item:hover .dropdown-menu__2--right {
+            display: block; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item:hover .dropdown__side-tabs__content {
+            display: block; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .nav-item .nav-link {
+            padding: 8px 0;
+            color: #777777;
+            font-size: 16px;
+            font-weight: 400;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent; }
+        .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .dropdown__side-tabs {
+          position: relative; }
+          .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .dropdown__side-tabs .dropdown__side-tabs__content {
+            position: absolute;
+            right: -40px;
+            display: none;
+            min-height: 500px;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 1px 3px #ddd; }
+            .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .dropdown__side-tabs .dropdown__side-tabs__content .side-tabs {
+              display: flex; }
+              .header .header__content .header__bottom .my-nav-bottom .my-nav-bottom__content .dropdown__side-tabs .dropdown__side-tabs__content .side-tabs .dropdown-tabs__menu {
+                list-style: none;
+                padding-top: 20px;
+                width: 310px;
+                border-right: 1px solid #e4e5e7; }
 
 /*# sourceMappingURL=main.css.map */
