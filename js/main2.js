@@ -37,6 +37,18 @@ var header = document.querySelector(".header__content");
 var headerWidth = header.clientWidth + 20;
 document.querySelector(".dropdown__side-tabs__content").style.width =
   headerWidth + "px";
+window.addEventListener("resize", function () {
+  resizeDropdown();
+});
+// document.getElementsByTagName("BODY")[0].onresize = function () {
+//   resizeDropdown();
+// };
+
+function resizeDropdown() {
+  headerWidth1 = window.innerWidth + 20;
+  document.querySelector(".dropdown__side-tabs__content").style.width =
+    headerWidth1 + "px";
+}
 
 var dropTab = document.querySelector(".side-tabs__link");
 dropTab.addEventListener("mouseover", function () {
@@ -118,42 +130,127 @@ tabMenuItem.addEventListener("mouseover", function () {
   document.querySelector("#real-estate").classList.add("active");
 });
 
-// Recently
-let recentlyCards = document.querySelectorAll(".recently__slider .owl-item");
-let indexCard = 100;
-recentlyCards.forEach((element) => {
-  element.style.zIndex = 90 + --indexCard;
-});
+function setCardDefault(index) {
+  let recentlyCardsTooltip = document.querySelectorAll(
+    ".recently__slider .owl-item .card-pro__tooltip--left"
+  );
 
-function setHoverTooltip() {
-  var recentlyActiveEnd = document.querySelectorAll(
+  recentlyCardsTooltip[index].style.transform = "scaleX(1)";
+  recentlyCardsTooltip[index].style.left = "50%";
+  recentlyCardsTooltip[index].style.bottom = "150%";
+  recentlyCardsTooltip[index].children[0].style.transform = "unset";
+}
+
+function setCardChange() {
+  let recentlyCardsActiveTooltip = document.querySelectorAll(
     ".recently__slider .owl-item.active .card-pro__tooltip--left"
   );
-  var cardPro = document.querySelectorAll(
-    ".recently__slider .owl-item.active  .card-pro img"
-  );
-  cardPro[4].addEventListener("mouseover", function () {
-    recentlyActiveEnd[cardPro.length - 1].classList.replace(
-      "card-pro__tooltip--left",
-      "card-pro__tooltip--right"
-    );
-  });
-  cardPro[4].addEventListener("mouseleave", function () {
-    recentlyActiveEnd[cardPro.length - 1].classList.replace(
-      "card-pro__tooltip--right",
-      "card-pro__tooltip--left"
-    );
-  });
-  var recentlyActiveEndRight = document.querySelectorAll(
-    ".recently__slider .owl-item.active .card-pro__tooltip--right"
-  );
-  cardPro[3].addEventListener("mouseover", function () {
-    recentlyActiveEndRight[0].classList.replace(
-      "card-pro__tooltip--right",
-      "card-pro__tooltip--left"
-    );
+
+  recentlyCardsActiveTooltip[4].style.transform = "scaleX(-1)";
+  recentlyCardsActiveTooltip[4].children[0].style.transform = "scaleX(-1)";
+  recentlyCardsActiveTooltip[4].style.left = "-200%";
+  recentlyCardsActiveTooltip[4].style.bottom = "150%";
+}
+
+function setCardTooltip() {
+  let recentlyCards = document.querySelectorAll(".recently__slider .owl-item");
+  let indexCard = 100;
+  recentlyCards.forEach((element, index) => {
+    element.style.zIndex = 90 + --indexCard;
   });
 }
 
+setCardTooltip();
+
+function setHoverTooltip() {
+  let recentlyCardsActive = document.querySelectorAll(
+    ".recently__slider .owl-item.active"
+  );
+
+  recentlyCardsActive.forEach(function (card, index) {
+    card.addEventListener("mouseover", function hover() {
+      setCardDefault(index);
+      if (index === 4) {
+        setCardChange();
+      }
+      recentlyCardsActive[index].style.zIndex =
+        recentlyCardsActive[index - 1].style.zIndex + 1;
+    });
+
+    card.addEventListener("mouseleave", function leave() {
+      setCardDefault(4);
+      recentlyCardsActive[index].style.zIndex =
+        recentlyCardsActive[index - 1].style.zIndex - 1;
+    });
+  });
+}
+
+//sometimes log err when action is faster than 1s
+//or if movement is too fast, zIndex will not be set fast enough
 var refresh = window.setInterval;
-refresh(setHoverTooltip, 300);
+refresh(setHoverTooltip, 1000);
+
+// Video
+var myVideo1 = document.getElementById("video1");
+var playButton1 = document.getElementById("play1");
+var myVideo2 = document.getElementById("video2");
+var playButton2 = document.getElementById("play2");
+var myVideo3 = document.getElementById("video3");
+var playButton3 = document.getElementById("play3");
+var closeButton = document.querySelectorAll(".close.video");
+
+playButton2.addEventListener("click", function () {
+  myVideo2.currentTime = 0;
+  myVideo2.play();
+});
+
+playButton3.addEventListener("click", function () {
+  myVideo3.currentTime = 0;
+  myVideo3.play();
+});
+
+playButton1.addEventListener("click", function () {
+  myVideo1.currentTime = 0;
+  myVideo1.play();
+});
+
+closeButton.forEach(function (element) {
+  element.addEventListener("click", function () {
+    myVideo1.currentTime = 0;
+    myVideo1.pause();
+    myVideo2.currentTime = 0;
+    myVideo2.pause();
+    myVideo3.currentTime = 0;
+    myVideo3.pause();
+  });
+});
+//footer
+var screenSize = window.innerWidth;
+var footerMenu = document.querySelectorAll(".footer__menu");
+var footerTitle = document.querySelectorAll(".footer__title");
+// footerMenu.forEach(function (element) {
+//   element.classList.remove("collapse");
+// });
+if (screenSize > 992) {
+  footerMenu.forEach(function (element) {
+    // element.classList.add("show");
+    element.classList.remove("collapse");
+  });
+}
+
+window.addEventListener("resize", function () {
+  screenSize = window.innerWidth;
+  if (screenSize > 992) {
+    footerMenu.forEach(function (element) {
+      // element.classList.add("show");
+      element.classList.remove("collapse");
+      // footerTitle.dataset.toggle = "collapse-none";
+    });
+  } else {
+    footerMenu.forEach(function (element) {
+      // element.classList.remove("show");
+      element.classList.add("collapse");
+      // footerTitle.dataset.toggle = "collapse";
+    });
+  }
+});
